@@ -4,13 +4,36 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## What This Repository Is
 
-This is the planning repository for **GLEAM Auto Care Inc.** — a proprietary two-sided marketplace platform ("Uber for car detailing") targeting the GTA market. No application code exists yet. The repo currently contains three foundational documents:
+This is the repository for **GLEAM Auto Care Inc.** — a proprietary two-sided marketplace platform ("Uber for car detailing") targeting the GTA market. It contains planning documents and an existing marketing landing page.
+
+### Planning Documents
 
 | File | Purpose |
 |---|---|
 | `GLEAM_Business_Plan.md` | Full business plan: model, market, financials, go-to-market, operations |
 | `GLEAM_Experience_Build.md` | Complete PRD: database schema, API routes, UI specs, feature scope for the MVP build |
 | `GTA_Car_Detailing_Dossier.md` | Market research dossier: TAM/SAM/SOM, competitor landscape, demand drivers |
+
+### Glean-Modern (Landing Page)
+
+A standalone React landing page in `Glean-Modern/` (separate git repo). Single-page marketing site built with Vite + React 19 + Tailwind CSS v4 + Framer Motion.
+
+**Dev commands** (run from `Glean-Modern/`):
+```bash
+npm install          # install dependencies
+npm run dev          # dev server on port 3000
+npm run build        # production build (outputs to dist/)
+npm run lint         # type-check only (tsc --noEmit)
+npm run clean        # remove dist/
+```
+
+**Structure**: The entire page lives in `src/App.tsx` (single component, ~477 lines). Styles in `src/index.css` (custom cursor, noise overlay, marquee animation, font imports via Bunny CDN). Static assets (images, video) in `public/`.
+
+**Key libraries**: `framer-motion` (scroll-driven parallax, entrance animations), `lucide-react` (icons), `@tailwindcss/vite` (Tailwind v4 Vite plugin — no `tailwind.config`, uses `@theme` directive in CSS).
+
+**Design tokens**: Dark theme (`#050505` bg), accent red (`#E23232`). Fonts: Anton (display), Inter (body), JetBrains Mono (mono), Playfair Display (serif italic). Path alias `@` resolves to project root.
+
+**Note**: `Glean-Modern/.env.example` references Gemini API keys from a prior scaffold — these are not used by the current landing page.
 
 ## Planned Tech Stack
 
