@@ -30,7 +30,7 @@ export function PricingCards() {
           className="flex flex-col md:flex-row justify-between items-end mb-8 gap-8"
         >
           <div>
-            <h2 className="text-6xl md:text-8xl font-display uppercase leading-[0.9]">Monthly<br />Plans</h2>
+            <h2 className="text-6xl md:text-8xl font-display uppercase leading-[0.9]">Monthly<br /><span className="text-[#E23232]">Plans</span></h2>
             <p className="font-mono text-xs text-white/50 uppercase tracking-widest mt-4 max-w-md">Cancel anytime — 30-day notice, no fees, no guilt trip. We don&apos;t do contracts because we&apos;d rather earn your business every month.</p>
           </div>
           <motion.button
