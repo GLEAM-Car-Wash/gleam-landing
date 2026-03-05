@@ -1,24 +1,48 @@
 'use client';
 
-import { ArrowRight, ChevronDown, Car, CalendarCheck, Navigation, BadgeCheck, MessageSquareHeart } from 'lucide-react';
+import { Car, CalendarCheck, Navigation, BadgeCheck, MessageSquareHeart } from 'lucide-react';
 import { motion } from 'framer-motion';
 
 const steps = [
-  { num: "01", Icon: Car, label: "Pick Your Car", sub: "Select vehicle type & location" },
-  { num: "02", Icon: CalendarCheck, label: "Book a Wash", sub: "30 seconds — instant confirm" },
-  { num: "03", Icon: Navigation, label: "Track Your Pro", sub: "Live updates to your phone" },
-  { num: "04", Icon: BadgeCheck, label: "Approve Photos", sub: "10 before/after shots sent" },
-  { num: "05", Icon: MessageSquareHeart, label: "Rate & Review", sub: "Tell us how we did" },
+  {
+    num: "01",
+    Icon: Car,
+    label: "Pick Your Car",
+    sub: "Select your vehicle type and drop location. Sedan, SUV, truck — we handle them all.",
+  },
+  {
+    num: "02",
+    Icon: CalendarCheck,
+    label: "Book a Wash",
+    sub: "30 seconds to book. Pick your time slot and get instant confirmation to your phone.",
+  },
+  {
+    num: "03",
+    Icon: Navigation,
+    label: "Track Your Pro",
+    sub: "Real-time updates straight to your phone. Know exactly when your pro arrives.",
+  },
+  {
+    num: "04",
+    Icon: BadgeCheck,
+    label: "Approve Photos",
+    sub: "10 before & after shots sent directly to you. Full transparency, zero guesswork.",
+  },
+  {
+    num: "05",
+    Icon: MessageSquareHeart,
+    label: "Rate & Review",
+    sub: "Tell us how we did. Your feedback keeps our wash pros at their absolute best.",
+  },
 ];
 
 const ease = [0.16, 1, 0.3, 1] as [number, number, number, number];
 
-const stepVariants = {
-  hidden: { opacity: 0, y: 50, scale: 0.9 },
+const cardVariants = {
+  hidden: { opacity: 0, y: 50 },
   visible: {
     opacity: 1,
     y: 0,
-    scale: 1,
     transition: { duration: 0.6, ease },
   },
 };
@@ -26,7 +50,13 @@ const stepVariants = {
 export function HowItWorks() {
   return (
     <section id="how-it-works" className="py-32 px-6 md:px-12 border-b border-white/10 relative overflow-hidden">
-      <div className="max-w-[1400px] mx-auto">
+      {/* Background glow */}
+      <div className="absolute inset-0 pointer-events-none">
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[600px] bg-[#E23232]/[0.03] rounded-full blur-[120px]" />
+      </div>
+
+      <div className="max-w-[1400px] mx-auto relative z-10">
+        {/* Header */}
         <div className="text-center mb-20">
           <motion.p
             initial={{ opacity: 0, y: 20 }}
@@ -48,59 +78,79 @@ export function HowItWorks() {
           </motion.h2>
         </div>
 
-        <div className="relative">
-          <motion.div
-            initial={{ scaleX: 0 }}
-            whileInView={{ scaleX: 1 }}
-            viewport={{ once: true }}
-            transition={{ duration: 1.2, delay: 0.3, ease: [0.16, 1, 0.3, 1] }}
-            className="hidden lg:block absolute top-16 left-[10%] right-[10%] h-[1px] bg-gradient-to-r from-transparent via-white/10 to-transparent origin-left"
-          />
-          <motion.div
-            className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-6 lg:gap-4"
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true, margin: '-60px' }}
-            transition={{ staggerChildren: 0.15 }}
-          >
-            {steps.map((step, idx) => (
-              <motion.div
-                key={idx}
-                variants={stepVariants}
-                className="group relative flex flex-col items-center text-center cursor-default"
-              >
-                <div className="relative mb-6">
-                  <motion.div
-                    className="w-32 h-32 rounded-full border border-white/10 flex items-center justify-center bg-[#0a0a0a] group-hover:border-[#E23232]/50 group-hover:bg-[#E23232]/[0.08] transition-all duration-500 relative z-10"
-                    whileHover={{ scale: 1.08, transition: { duration: 0.3 } }}
-                  >
-                    <step.Icon className="w-10 h-10 text-white/40 group-hover:text-[#E23232] transition-all duration-500 group-hover:scale-110" />
-                  </motion.div>
-                  <span className="absolute -top-2 -right-2 font-display text-3xl text-[#E23232]/30 group-hover:text-[#E23232] transition-colors duration-300 z-20">{step.num}</span>
-                </div>
-                <h3 className="font-display text-xl uppercase mb-2 group-hover:text-[#E23232] transition-colors duration-300">{step.label}</h3>
-                <p className="font-mono text-[10px] text-white/50 uppercase tracking-widest">{step.sub}</p>
-                {idx < 4 && (
-                  <motion.div
-                    className="hidden lg:block absolute top-16 -right-4 z-20"
-                    initial={{ opacity: 0, x: -10 }}
-                    whileInView={{ opacity: 1, x: 0 }}
-                    viewport={{ once: true }}
-                    transition={{ duration: 0.4, delay: 0.3 + idx * 0.15 }}
-                  >
-                    <ArrowRight className="w-4 h-4 text-white/20" />
-                  </motion.div>
-                )}
-                {idx < 4 && (
-                  <div className="lg:hidden flex justify-center my-4">
-                    <ChevronDown className="w-5 h-5 text-white/20" />
-                  </div>
-                )}
-              </motion.div>
-            ))}
-          </motion.div>
-        </div>
+        {/* Top row — 3 cards */}
+        <motion.div
+          className="grid grid-cols-1 md:grid-cols-3 gap-5 mb-5"
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, margin: '-60px' }}
+          transition={{ staggerChildren: 0.12 }}
+        >
+          {steps.slice(0, 3).map((step, idx) => (
+            <StepCard key={idx} step={step} idx={idx} />
+          ))}
+        </motion.div>
+
+        {/* Bottom row — 2 cards centered */}
+        <motion.div
+          className="grid grid-cols-1 md:grid-cols-2 gap-5 max-w-[930px] mx-auto"
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, margin: '-40px' }}
+          transition={{ staggerChildren: 0.12, delayChildren: 0.3 }}
+        >
+          {steps.slice(3).map((step, idx) => (
+            <StepCard key={idx + 3} step={step} idx={idx + 3} />
+          ))}
+        </motion.div>
       </div>
     </section>
+  );
+}
+
+function StepCard({ step, idx }: { step: typeof steps[number]; idx: number }) {
+  return (
+    <motion.div
+      variants={cardVariants}
+      className="group relative overflow-hidden rounded-2xl bg-[#0a0a0a] border border-white/[0.06] hover:border-[#E23232]/30 transition-all duration-500"
+      whileHover={{ y: -6, transition: { duration: 0.3 } }}
+    >
+      {/* Top gradient accent bar */}
+      <div className="h-[2px] w-full bg-gradient-to-r from-[#E23232]/40 via-[#E23232] to-[#E23232]/40 opacity-30 group-hover:opacity-100 transition-opacity duration-500" />
+
+      <div className="p-8 md:p-10 relative">
+        {/* Large watermark number */}
+        <span className="absolute top-2 right-4 font-display text-[100px] leading-none text-white/[0.03] group-hover:text-[#E23232]/[0.07] transition-colors duration-700 select-none pointer-events-none">
+          {step.num}
+        </span>
+
+        {/* Icon with glow */}
+        <div className="relative mb-7 inline-flex">
+          <div className="w-14 h-14 rounded-2xl bg-[#E23232]/[0.08] group-hover:bg-[#E23232]/20 flex items-center justify-center transition-all duration-500 relative z-10">
+            <step.Icon className="w-7 h-7 text-[#E23232]/60 group-hover:text-[#E23232] transition-all duration-500" />
+          </div>
+          <div className="absolute inset-0 bg-[#E23232]/20 rounded-2xl blur-xl opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+        </div>
+
+        {/* Step label */}
+        <div className="flex items-center gap-3 mb-4">
+          <span className="font-mono text-[10px] text-[#E23232]/80 uppercase tracking-[0.3em]">Step {step.num}</span>
+          <div className="h-[1px] flex-1 bg-gradient-to-r from-white/10 to-transparent" />
+        </div>
+
+        {/* Title */}
+        <h3 className="font-display text-2xl uppercase mb-3 group-hover:text-[#E23232] transition-colors duration-300">
+          {step.label}
+        </h3>
+
+        {/* Description */}
+        <p className="font-mono text-[11px] text-white/45 leading-[1.8] tracking-wider group-hover:text-white/65 transition-colors duration-500">
+          {step.sub}
+        </p>
+      </div>
+
+      {/* Bottom corner glow on hover */}
+      <div className="absolute -bottom-10 -right-10 w-32 h-32 bg-[#E23232]/10 rounded-full blur-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-700 pointer-events-none" />
+    </motion.div>
   );
 }

@@ -23,9 +23,9 @@ export const pricingCards = [
     title: "DRIVEO Plus",
     desc: "1 full wash + 1 express wash per month. The plan condo dwellers and downtown professionals choose when they want clean inside and out, handled completely on autopilot. No scheduling. No thinking. Just a clean car, always.",
     services: "1x Full Wash + 1x Express Wash",
-    bg: "bg-[#E23232]",
-    text: "text-black",
-    accent: "text-black",
+    bg: "bg-[#111]",
+    text: "text-white",
+    accent: "text-[#E23232]",
     popular: true,
   },
   {

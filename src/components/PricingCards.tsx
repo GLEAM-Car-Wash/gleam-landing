@@ -70,7 +70,7 @@ export function PricingCards() {
               onMouseEnter={() => setIsHovering(true)}
               onMouseLeave={() => setIsHovering(false)}
             >
-              {'popular' in card && card.popular && <span className="absolute top-6 right-6 font-mono text-[10px] uppercase tracking-widest bg-black text-white px-4 py-1.5 rounded-full">Most Popular</span>}
+              {'popular' in card && card.popular && <span className="absolute top-6 right-6 font-mono text-[10px] uppercase tracking-widest bg-[#E23232] text-white px-4 py-1.5 rounded-full">Most Popular</span>}
               <div className="flex items-baseline gap-1 mb-6">
                 <h3 className={`text-7xl font-display ${card.accent}`}>{card.price}</h3>
                 <span className="font-mono text-sm opacity-80">{card.label}</span>
@@ -81,7 +81,7 @@ export function PricingCards() {
               <motion.button
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.97 }}
-                className={`font-mono text-xs uppercase tracking-widest border ${card.bg === 'bg-[#E23232]' ? 'border-black hover:bg-black hover:text-[#E23232]' : 'border-white/30 hover:bg-white hover:text-black'} px-8 py-4 rounded-full transition-all self-start`}
+                className="font-mono text-xs uppercase tracking-widest border border-white/30 hover:bg-white hover:text-black px-8 py-4 rounded-full transition-all self-start"
               >
                 Start Your Plan
               </motion.button>
