@@ -154,7 +154,7 @@ export function CondoSection() {
                   className="group flex items-center gap-3 bg-[#111] border border-white/5 rounded-xl px-4 py-3 hover:border-[#E23232]/30 transition-colors"
                 >
                   <div className="w-2 h-2 rounded-full bg-[#E23232]/40 group-hover:bg-[#E23232] transition-colors shrink-0" />
-                  <span className="font-mono text-[11px] text-white/70 uppercase tracking-wider group-hover:text-white/90 transition-colors">{building}</span>
+                  <span className="font-mono text-[11px] text-white/85 uppercase tracking-wider group-hover:text-white/95 transition-colors">{building}</span>
                 </motion.div>
               ))}
             </motion.div>
