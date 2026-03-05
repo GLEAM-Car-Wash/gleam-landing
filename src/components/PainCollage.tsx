@@ -16,7 +16,7 @@ export function PainCollage() {
   const x3 = useTransform(collageScroll, [0, 1], ["80%", "40%"]);
   const x4 = useTransform(collageScroll, [0, 1], ["200%", "120%"]);
 
-  const imgClass = "absolute w-[160px] lg:w-[280px] h-[220px] lg:h-[380px] object-cover border-[4px] border-[#222] grayscale hover:grayscale-0 hover:z-50 transition-all duration-500";
+  const imgClass = "absolute w-[160px] lg:w-[280px] h-[220px] lg:h-[380px] object-cover border-[4px] border-[#222] lg:grayscale lg:hover:grayscale-0 hover:z-50 transition-all duration-500";
 
   return (
     <section className="pt-32 pb-16 px-6 overflow-hidden relative border-b border-white/10">

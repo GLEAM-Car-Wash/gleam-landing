@@ -3,6 +3,7 @@
 import { Menu } from 'lucide-react';
 import { motion, useScroll, useMotionValueEvent } from 'framer-motion';
 import { useState } from 'react';
+import Image from 'next/image';
 import { useCursor } from './CursorProvider';
 
 export function Navbar() {
@@ -24,23 +25,21 @@ export function Navbar() {
     >
       <div className="flex items-center gap-6">
         <motion.div
-          className="font-display text-2xl tracking-widest uppercase relative cursor-pointer inline-block"
+          className="relative cursor-pointer"
           onMouseEnter={() => setIsHovering(true)}
           onMouseLeave={() => setIsHovering(false)}
           initial={{ opacity: 0, y: -20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
         >
-          DRIVEO
-          <svg width="100%" height="10" viewBox="0 0 80 10" fill="none" xmlns="http://www.w3.org/2000/svg" className="absolute -top-3 left-0 w-full">
-            <motion.path
-              d="M2 8 C 15 1, 35 -1, 55 3 C 65 5, 75 7, 78 8"
-              stroke="#E23232" strokeWidth="2.5" strokeLinecap="round" fill="none"
-              initial={{ pathLength: 0 }}
-              animate={{ pathLength: 1 }}
-              transition={{ duration: 1.2, delay: 0.5, ease: 'easeOut' }}
-            />
-          </svg>
+          <Image
+            src="/Driveo-logo.png"
+            alt="DRIVEO"
+            width={120}
+            height={40}
+            className="h-8 w-auto"
+            priority
+          />
         </motion.div>
         <motion.span
           initial={{ opacity: 0, x: -20 }}
