@@ -44,9 +44,9 @@ export function Footer() {
           <motion.div variants={columnVariants}>
             <h3 className="text-white mb-6 font-bold">Contact</h3>
             <ul className="space-y-4">
-              <li>hello@gleam.ca</li>
-              <li>@gleamgta</li>
-              <li>(416) 555-GLEAM</li>
+              <li>hello@driveo.ca</li>
+              <li>@driveogta</li>
+              <li>(416) 555-DRIVEO</li>
             </ul>
           </motion.div>
           <motion.div variants={columnVariants}>
@@ -66,7 +66,7 @@ export function Footer() {
           transition={{ duration: 0.6, delay: 0.4 }}
           className="mt-24 text-center font-mono text-xs text-white/50 uppercase tracking-widest"
         >
-          &copy; 2026 GLEAM Auto Care Inc. $2M insured. Satisfaction guaranteed. Serving the Greater Toronto Area.
+          &copy; 2026 DRIVEO Auto Care Inc. $2M insured. Satisfaction guaranteed. Serving the Greater Toronto Area.
         </motion.div>
       </div>
     </footer>

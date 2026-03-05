@@ -31,7 +31,7 @@ export function Navbar() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
         >
-          GLEAM
+          DRIVEO
           <svg width="100%" height="10" viewBox="0 0 80 10" fill="none" xmlns="http://www.w3.org/2000/svg" className="absolute -top-3 left-0 w-full">
             <motion.path
               d="M2 8 C 15 1, 35 -1, 55 3 C 65 5, 75 7, 78 8"

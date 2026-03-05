@@ -34,7 +34,7 @@ export function USPGrid() {
           transition={{ duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
           className="font-mono text-[11px] text-[#E23232] uppercase tracking-[0.3em] text-center mb-12"
         >
-          Why GLEAM is different
+          Why DRIVEO is different
         </motion.p>
         <motion.div
           variants={containerVariants}

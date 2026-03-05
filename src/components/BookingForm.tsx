@@ -37,7 +37,7 @@ export function BookingForm() {
             viewport={{ once: true }}
             transition={{ duration: 0.8, delay: 0.1, ease: [0.16, 1, 0.3, 1] }}
           >
-            <Image src="/booking-bg.jpeg" alt="GLEAM wash" fill className="object-cover" sizes="(max-width: 1024px) 100vw, 45vw" />
+            <Image src="/booking-bg.jpeg" alt="DRIVEO wash" fill className="object-cover" sizes="(max-width: 1024px) 100vw, 45vw" />
             <div className="absolute inset-0 bg-gradient-to-t from-black via-black/70 to-black/30" />
             <div className="relative z-10 p-10 md:p-14 flex flex-col justify-end h-full min-h-[400px] lg:min-h-0">
               <motion.p
@@ -67,7 +67,7 @@ export function BookingForm() {
               >
                 If it&apos;s not the best car wash you&apos;ve ever had, it&apos;s free.
               </motion.p>
-              <div className="flex flex-wrap gap-x-6 gap-y-2 font-mono text-[10px] text-white/50 uppercase tracking-widest">
+              <div className="flex flex-wrap gap-x-6 gap-y-2 font-mono text-[10px] text-white/70 uppercase tracking-widest">
                 <span>$2M insured</span>
                 <span>Photo proof</span>
                 <span>Cancel anytime</span>
@@ -92,27 +92,27 @@ export function BookingForm() {
             >
               <motion.div variants={formFieldVariants} className="flex flex-col md:flex-row gap-6">
                 <div className="w-full group">
-                  <label className="font-mono text-[10px] text-white/50 uppercase tracking-widest block mb-2">Full Name</label>
-                  <input type="text" placeholder="John Doe" className="w-full bg-[#111] border border-white/10 rounded-xl px-5 py-4 font-mono text-sm outline-none focus:border-[#E23232] transition-colors text-white placeholder:text-white/40" />
+                  <label className="font-mono text-[10px] text-white/70 uppercase tracking-widest block mb-2">Full Name</label>
+                  <input type="text" placeholder="John Doe" className="w-full bg-[#111] border border-white/10 rounded-xl px-5 py-4 font-mono text-sm outline-none focus:border-[#E23232] transition-colors text-white placeholder:text-white/60" />
                 </div>
                 <div className="w-full group">
-                  <label className="font-mono text-[10px] text-white/50 uppercase tracking-widest block mb-2">Email</label>
-                  <input type="email" placeholder="john@email.com" className="w-full bg-[#111] border border-white/10 rounded-xl px-5 py-4 font-mono text-sm outline-none focus:border-[#E23232] transition-colors text-white placeholder:text-white/40" />
-                </div>
-              </motion.div>
-              <motion.div variants={formFieldVariants} className="flex flex-col md:flex-row gap-6">
-                <div className="w-full group">
-                  <label className="font-mono text-[10px] text-white/50 uppercase tracking-widest block mb-2">Phone</label>
-                  <input type="tel" placeholder="(416) 000-0000" className="w-full bg-[#111] border border-white/10 rounded-xl px-5 py-4 font-mono text-sm outline-none focus:border-[#E23232] transition-colors text-white placeholder:text-white/40" />
-                </div>
-                <div className="w-full group">
-                  <label className="font-mono text-[10px] text-white/50 uppercase tracking-widest block mb-2">Vehicle</label>
-                  <input type="text" placeholder="BMW M4, Tesla Model 3..." className="w-full bg-[#111] border border-white/10 rounded-xl px-5 py-4 font-mono text-sm outline-none focus:border-[#E23232] transition-colors text-white placeholder:text-white/40" />
+                  <label className="font-mono text-[10px] text-white/70 uppercase tracking-widest block mb-2">Email</label>
+                  <input type="email" placeholder="john@email.com" className="w-full bg-[#111] border border-white/10 rounded-xl px-5 py-4 font-mono text-sm outline-none focus:border-[#E23232] transition-colors text-white placeholder:text-white/60" />
                 </div>
               </motion.div>
               <motion.div variants={formFieldVariants} className="flex flex-col md:flex-row gap-6">
                 <div className="w-full group">
-                  <label className="font-mono text-[10px] text-white/50 uppercase tracking-widest block mb-2">Wash Type</label>
+                  <label className="font-mono text-[10px] text-white/70 uppercase tracking-widest block mb-2">Phone</label>
+                  <input type="tel" placeholder="(416) 000-0000" className="w-full bg-[#111] border border-white/10 rounded-xl px-5 py-4 font-mono text-sm outline-none focus:border-[#E23232] transition-colors text-white placeholder:text-white/60" />
+                </div>
+                <div className="w-full group">
+                  <label className="font-mono text-[10px] text-white/70 uppercase tracking-widest block mb-2">Vehicle</label>
+                  <input type="text" placeholder="BMW M4, Tesla Model 3..." className="w-full bg-[#111] border border-white/10 rounded-xl px-5 py-4 font-mono text-sm outline-none focus:border-[#E23232] transition-colors text-white placeholder:text-white/60" />
+                </div>
+              </motion.div>
+              <motion.div variants={formFieldVariants} className="flex flex-col md:flex-row gap-6">
+                <div className="w-full group">
+                  <label className="font-mono text-[10px] text-white/70 uppercase tracking-widest block mb-2">Wash Type</label>
                   <select className="w-full bg-[#111] border border-white/10 rounded-xl px-5 py-4 font-mono text-sm outline-none focus:border-[#E23232] transition-colors text-white appearance-none cursor-pointer" defaultValue="">
                     <option value="" disabled className="bg-[#111]">Select a wash</option>
                     <option value="express" className="bg-[#111]">Express Wash ($49+)</option>
@@ -122,7 +122,7 @@ export function BookingForm() {
                   </select>
                 </div>
                 <div className="w-full group">
-                  <label className="font-mono text-[10px] text-white/50 uppercase tracking-widest block mb-2">Location</label>
+                  <label className="font-mono text-[10px] text-white/70 uppercase tracking-widest block mb-2">Location</label>
                   <select className="w-full bg-[#111] border border-white/10 rounded-xl px-5 py-4 font-mono text-sm outline-none focus:border-[#E23232] transition-colors text-white appearance-none cursor-pointer" defaultValue="">
                     <option value="" disabled className="bg-[#111]">Where&apos;s your car?</option>
                     <option value="condo" className="bg-[#111]">Condo Underground</option>
@@ -133,8 +133,8 @@ export function BookingForm() {
                 </div>
               </motion.div>
               <motion.div variants={formFieldVariants} className="w-full">
-                <label className="font-mono text-[10px] text-white/50 uppercase tracking-widest block mb-2">Notes (optional)</label>
-                <textarea placeholder="Gate codes, parking level, pet hair situation..." rows={2} className="w-full bg-[#111] border border-white/10 rounded-xl px-5 py-4 font-mono text-sm outline-none focus:border-[#E23232] transition-colors text-white placeholder:text-white/40 resize-none"></textarea>
+                <label className="font-mono text-[10px] text-white/70 uppercase tracking-widest block mb-2">Notes (optional)</label>
+                <textarea placeholder="Gate codes, parking level, pet hair situation..." rows={2} className="w-full bg-[#111] border border-white/10 rounded-xl px-5 py-4 font-mono text-sm outline-none focus:border-[#E23232] transition-colors text-white placeholder:text-white/60 resize-none"></textarea>
               </motion.div>
               <motion.button
                 variants={formFieldVariants}

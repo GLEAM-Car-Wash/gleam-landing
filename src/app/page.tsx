@@ -22,12 +22,12 @@ export default function HomePage() {
         <Navbar />
         <HeroSection />
         <Marquee />
-        <USPGrid />
+        <BeforeAfterSlider />
         <GoogleReviews />
         <CondoSection />
         <PainCollage />
+        <USPGrid />
         <HowItWorks />
-        <BeforeAfterSlider />
         <PricingCards />
         <BookingForm />
         <FAQAccordion />

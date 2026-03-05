@@ -47,7 +47,7 @@ export function BeforeAfterSlider() {
           transition={{ duration: 0.6, delay: 0.1, ease: [0.16, 1, 0.3, 1] }}
           className="text-4xl md:text-6xl font-display uppercase leading-[0.9]"
         >
-          The GLEAM <span className="text-[#E23232]">Effect</span>
+          The DRIVEO <span className="text-[#E23232]">Effect</span>
         </motion.h2>
       </div>
 
@@ -71,11 +71,11 @@ export function BeforeAfterSlider() {
           onClick={(e) => handleSliderMove(e.clientX)}
         >
           {/* After image (full, sits behind) */}
-          <img src="/after-wash.jpeg" alt="After GLEAM wash" className="absolute inset-0 w-full h-full object-cover" />
+          <img src="/after-wash.jpeg" alt="After DRIVEO wash" className="absolute inset-0 w-full h-full object-cover" />
 
           {/* Before image (clipped) */}
           <div className="absolute inset-0 overflow-hidden" style={{ width: `${sliderPos}%` }}>
-            <img src="/before-wash.jpeg" alt="Before GLEAM wash" className="absolute inset-0 w-full h-full object-cover" style={{ width: `${containerWidth}px`, maxWidth: 'none' }} />
+            <img src="/before-wash.jpeg" alt="Before DRIVEO wash" className="absolute inset-0 w-full h-full object-cover" style={{ width: `${containerWidth}px`, maxWidth: 'none' }} />
           </div>
 
           {/* Slider line */}

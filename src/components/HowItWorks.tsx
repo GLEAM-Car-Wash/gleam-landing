@@ -44,7 +44,7 @@ export function HowItWorks() {
             transition={{ duration: 0.7, delay: 0.1, ease: [0.16, 1, 0.3, 1] }}
             className="text-5xl md:text-7xl lg:text-8xl font-display uppercase leading-[0.9]"
           >
-            How <span className="text-[#E23232]">GLEAM</span> Works
+            How <span className="text-[#E23232]">DRIVEO</span> Works
           </motion.h2>
         </div>
 

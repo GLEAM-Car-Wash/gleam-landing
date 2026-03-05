@@ -5,15 +5,9 @@ import { motion, useScroll, useTransform } from 'framer-motion';
 
 export function PainCollage() {
   const collageRef = useRef(null);
-  const collageRef2 = useRef(null);
 
   const { scrollYProgress: collageScroll } = useScroll({
     target: collageRef,
-    offset: ["start end", "center center"],
-  });
-
-  const { scrollYProgress: collageScroll2 } = useScroll({
-    target: collageRef2,
     offset: ["start end", "center center"],
   });
 
@@ -21,15 +15,11 @@ export function PainCollage() {
   const x2 = useTransform(collageScroll, [0, 1], ["-80%", "-40%"]);
   const x3 = useTransform(collageScroll, [0, 1], ["80%", "40%"]);
   const x4 = useTransform(collageScroll, [0, 1], ["200%", "120%"]);
-  const x5 = useTransform(collageScroll2, [0, 1], ["-200%", "-120%"]);
-  const x6 = useTransform(collageScroll2, [0, 1], ["-80%", "-40%"]);
-  const x7 = useTransform(collageScroll2, [0, 1], ["80%", "40%"]);
-  const x8 = useTransform(collageScroll2, [0, 1], ["200%", "120%"]);
 
   const imgClass = "absolute w-[160px] lg:w-[280px] h-[220px] lg:h-[380px] object-cover border-[4px] border-[#222] grayscale hover:grayscale-0 hover:z-50 transition-all duration-500";
 
   return (
-    <section className="py-32 px-6 overflow-hidden relative border-b border-white/10">
+    <section className="pt-32 pb-16 px-6 overflow-hidden relative border-b border-white/10">
       <div className="max-w-[1600px] mx-auto text-center">
         <motion.h2
           initial={{ opacity: 0, y: 60 }}
@@ -62,7 +52,7 @@ export function PainCollage() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.5, delay: 0.2 }}
-          className="flex flex-wrap justify-center gap-x-8 gap-y-4 font-mono text-sm md:text-base uppercase tracking-widest mb-24"
+          className="flex flex-wrap justify-center gap-x-8 gap-y-4 font-mono text-sm md:text-base uppercase tracking-widest"
         >
           <span className="text-white/50">No spinning brushes</span>
           <span className="text-[#E23232]">Hand wash only</span>
@@ -70,13 +60,6 @@ export function PainCollage() {
           <span className="text-[#E23232]">Photo proof</span>
           <span className="text-white/50">No wasted Saturdays</span>
         </motion.div>
-
-        <div ref={collageRef2} className="flex justify-center items-center h-[300px] lg:h-[450px] relative w-full max-w-5xl mx-auto">
-          <motion.img style={{ x: x5 }} src="/collage-1.jpeg" alt="Wash 1" className={`${imgClass} -rotate-[15deg] z-10`} />
-          <motion.img style={{ x: x6 }} src="/collage-2.jpeg" alt="Wash 2" className={`${imgClass} -rotate-[5deg] z-20`} />
-          <motion.img style={{ x: x7 }} src="/collage-3.jpeg" alt="Wash 3" className={`${imgClass} rotate-[5deg] z-40`} />
-          <motion.img style={{ x: x8 }} src="/collage-4.jpeg" alt="Wash 4" className={`${imgClass} rotate-[15deg] z-30`} />
-        </div>
       </div>
     </section>
   );
