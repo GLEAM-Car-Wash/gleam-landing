@@ -16,7 +16,17 @@
       "Bash(git reset:*)",
       "Bash(taskkill:*)",
       "Bash(netstat:*)",
-      "Bash(findstr:*)"
+      "Bash(findstr:*)",
+      "Bash(timeout 10 tail:*)",
+      "Bash(ffmpeg:*)",
+      "Bash(ffprobe:*)",
+      "Bash(winget install:*)",
+      "Bash(choco install:*)",
+      "Bash(scoop install:*)",
+      "Bash(curl:*)",
+      "Bash(unzip:*)",
+      "Bash(./ffmpeg-8.0.1-essentials_build/bin/ffmpeg.exe:*)",
+      "Bash(ls:*)"
     ]
   }
 }

@@ -4,6 +4,7 @@ import { Menu } from 'lucide-react';
 import { motion, useScroll, useMotionValueEvent } from 'framer-motion';
 import { useState } from 'react';
 import Image from 'next/image';
+import Link from 'next/link';
 import { useCursor } from './CursorProvider';
 
 export function Navbar() {
@@ -69,22 +70,37 @@ export function Navbar() {
         ))}
       </div>
 
-      <motion.button
-        className={`hidden md:block font-mono text-xs uppercase tracking-widest border px-6 py-3 rounded-full transition-all duration-300 ${
-          scrolled
-            ? 'bg-[#E23232] border-[#E23232] text-white hover:bg-white hover:text-black hover:border-white'
-            : 'border-white/30 hover:bg-[#E23232] hover:border-[#E23232] hover:text-white'
-        }`}
-        onMouseEnter={() => setIsHovering(true)}
-        onMouseLeave={() => setIsHovering(false)}
-        initial={{ opacity: 0, scale: 0.9 }}
-        animate={{ opacity: 1, scale: 1 }}
-        transition={{ duration: 0.5, delay: 0.4 }}
-        whileHover={{ scale: 1.05 }}
-        whileTap={{ scale: 0.97 }}
-      >
-        Book Your First Wash
-      </motion.button>
+      <div className="hidden md:flex items-center gap-4">
+        <Link href="/apply">
+          <motion.span
+            className="font-mono text-xs uppercase tracking-widest text-white/70 hover:text-[#E23232] transition-colors relative group"
+            onMouseEnter={() => setIsHovering(true)}
+            onMouseLeave={() => setIsHovering(false)}
+            initial={{ opacity: 0, y: -10 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.4, delay: 0.35 }}
+          >
+            Become a Partner
+            <span className="absolute -bottom-1 left-0 w-0 h-[1px] bg-[#E23232] group-hover:w-full transition-all duration-300" />
+          </motion.span>
+        </Link>
+        <motion.button
+          className={`font-mono text-xs uppercase tracking-widest border px-6 py-3 rounded-full transition-all duration-300 ${
+            scrolled
+              ? 'bg-[#E23232] border-[#E23232] text-white hover:bg-white hover:text-black hover:border-white'
+              : 'border-white/30 hover:bg-[#E23232] hover:border-[#E23232] hover:text-white'
+          }`}
+          onMouseEnter={() => setIsHovering(true)}
+          onMouseLeave={() => setIsHovering(false)}
+          initial={{ opacity: 0, scale: 0.9 }}
+          animate={{ opacity: 1, scale: 1 }}
+          transition={{ duration: 0.5, delay: 0.4 }}
+          whileHover={{ scale: 1.05 }}
+          whileTap={{ scale: 0.97 }}
+        >
+          Book Your First Wash
+        </motion.button>
+      </div>
       <button className="md:hidden text-white"><Menu /></button>
     </motion.nav>
   );

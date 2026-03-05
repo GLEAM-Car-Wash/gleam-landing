@@ -13,3 +13,8 @@ node_modules/
 # Misc
 .DS_Store
 *.log
+
+# Large files (ffmpeg, raw videos)
+ffmpeg-8.0.1-essentials_build/
+ffmpeg.zip
+DRIVEO Partner — Dawn Preparation.mp4
