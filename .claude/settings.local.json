@@ -26,7 +26,8 @@
       "Bash(curl:*)",
       "Bash(unzip:*)",
       "Bash(./ffmpeg-8.0.1-essentials_build/bin/ffmpeg.exe:*)",
-      "Bash(ls:*)"
+      "Bash(ls:*)",
+      "Bash(npx vercel:*)"
     ]
   }
 }

@@ -12,6 +12,51 @@ import { NoiseOverlay } from '@/components/NoiseOverlay';
 
 const ease = [0.16, 1, 0.3, 1] as [number, number, number, number];
 
+// Compress image files to stay under Vercel's 4.5MB body limit
+async function compressImage(file: File, maxSizeMB = 1): Promise<File> {
+  // Skip non-image files (e.g. PDFs)
+  if (!file.type.startsWith('image/')) return file;
+  // Skip if already small enough
+  if (file.size <= maxSizeMB * 1024 * 1024) return file;
+
+  return new Promise((resolve) => {
+    const img = new window.Image();
+    const url = URL.createObjectURL(file);
+    img.onload = () => {
+      URL.revokeObjectURL(url);
+      const canvas = document.createElement('canvas');
+      // Scale down if very large
+      let { width, height } = img;
+      const maxDim = 1600;
+      if (width > maxDim || height > maxDim) {
+        const ratio = Math.min(maxDim / width, maxDim / height);
+        width = Math.round(width * ratio);
+        height = Math.round(height * ratio);
+      }
+      canvas.width = width;
+      canvas.height = height;
+      const ctx = canvas.getContext('2d')!;
+      ctx.drawImage(img, 0, 0, width, height);
+      canvas.toBlob(
+        (blob) => {
+          if (blob) {
+            resolve(new File([blob], file.name, { type: 'image/jpeg' }));
+          } else {
+            resolve(file);
+          }
+        },
+        'image/jpeg',
+        0.7
+      );
+    };
+    img.onerror = () => {
+      URL.revokeObjectURL(url);
+      resolve(file);
+    };
+    img.src = url;
+  });
+}
+
 const TOTAL_STEPS = 5;
 
 const stepInfo = [
@@ -157,10 +202,16 @@ export default function OnboardingPage() {
     }
   };
 
-  const handleFileChange = (field: 'governmentId' | 'insurance', e: React.ChangeEvent<HTMLInputElement>) => {
-    const file = e.target.files?.[0] || null;
+  const handleFileChange = async (field: 'governmentId' | 'insurance', e: React.ChangeEvent<HTMLInputElement>) => {
+    const raw = e.target.files?.[0] || null;
+    if (!raw) {
+      update(field, null);
+      update(`${field}Name` as keyof FormData, '');
+      return;
+    }
+    const file = await compressImage(raw);
     update(field, file);
-    update(`${field}Name` as keyof FormData, file?.name || '');
+    update(`${field}Name` as keyof FormData, raw.name);
   };
 
   const BlobComponent = [BlobBasicInfo, BlobLocation, BlobExperience, BlobDocuments, BlobReview][step];
